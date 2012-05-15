@@ -16,23 +16,16 @@ config # => {:db => {:user => 'root'}}
 ```
 
 Because a `PurpleHash` is simply a sub-class of `Hash` you can do anything you
-would normally be able to without any hacks or tricks. Though not provided by
-this library, you could extend `Hash` to provide a `#to_purple_hash` like so:
-
-```ruby
-class Hash
-  def to_purple_hash
-    PurpleHash.new(self)
-  end
-end
-```
+would normally be able to without any hacks or tricks. A core extension of Hash
+is provided if you wish to use it, simply require `core_ext/hash/purple_hash`
+and call `#to_purple_hash` on any Ruby hash to get a `PurpleHash` back.
 
 **Note:** If you try to change the default value on a `PurpleHash` a `RuntimeError`
 will be raised informing you that this is not allowed.
 
 ## API
 
-PurpleHash provides a very basic API on top of what Hash already provides.
+`PurpleHash` provides a very basic API on top of what Hash already provides.
 
 ### `#configure_from_hash(hash)`
 
