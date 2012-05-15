@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name      = %q<purple_hash>
-  s.version   = '1.0.0'
+  s.version   = '1.0.1'
   s.authors   = [%q<James Logsdon>]
   s.email     = %q<dwarf@girsbrain.org>
-  s.date      = %q<2012-05-11>
+  s.date      = %q<2012-05-15>
   s.homepage  = %q<http://github.com/jlogsdon/purple_hash>
   s.licenses  = ['MIT']
 
