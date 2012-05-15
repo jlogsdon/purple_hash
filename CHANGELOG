@@ -1,0 +1,5 @@
+# 1.0.1
+ * Added (optional) core extension for `Hash#to_purple_hash
+
+# 1.0.0
+ * First release

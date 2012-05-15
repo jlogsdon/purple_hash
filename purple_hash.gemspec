@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
     'Gemfile.lock',
     'lib/purple_hash.rb',
     'LICENSE',
+    'CHANGELOG',
     'Rakefile',
     'README.md',
   ]
