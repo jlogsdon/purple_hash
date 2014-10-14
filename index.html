@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Purple hash by jlogsdon</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Purple hash</h1>
+        <p>A lightweight Configuration gem built with Hashes</p>
+
+        <p class="view"><a href="https://github.com/jlogsdon/purple_hash">View the Project on GitHub <small>jlogsdon/purple_hash</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jlogsdon/purple_hash/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jlogsdon/purple_hash/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jlogsdon/purple_hash">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Purple Hash is a configuration library for ruby that builds upon Ruby's core
+Hash. At it's core Purple allows you to access keys that do not exist yet by
+defining a default value proc which provides you with a new instance of a
+Purple Hash. Keys are also normalized to symbols, similar to how Rail's
+<code>HashWithIndifferentAccess</code> works.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'purple_hash'</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="no">PurpleHash</span><span class="o">.</span><span class="n">new</span>
+<span class="n">config</span><span class="o">[</span><span class="ss">:db</span><span class="o">][</span><span class="s1">'user'</span><span class="o">]</span> <span class="o">=</span> <span class="s1">'root'</span>
+<span class="n">config</span> <span class="c1"># =&gt; {:db =&gt; {:user =&gt; 'root'}}</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="no">PurpleHash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:db</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'user'</span> <span class="o">=&gt;</span> <span class="s1">'root'</span><span class="p">})</span>
+<span class="n">config</span> <span class="c1"># =&gt; {:db =&gt; {:user =&gt; 'root'}}</span>
+</pre></div>
+
+<p>Because a <code>PurpleHash</code> is simply a sub-class of <code>Hash</code> you can do anything you
+would normally be able to without any hacks or tricks. A core extension of Hash
+is provided if you wish to use it, simply require <code>core_ext/hash/purple_hash</code>
+and call <code>#to_purple_hash</code> on any Ruby hash to get a <code>PurpleHash</code> back.</p>
+
+<p><strong>Note:</strong> If you try to change the default value on a <code>PurpleHash</code> a <code>RuntimeError</code>
+will be raised informing you that this is not allowed.</p>
+
+<h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p><code>PurpleHash</code> provides a very basic API on top of what Hash already provides.</p>
+
+<h3>
+<a name="configure_from_hashhash" class="anchor" href="#configure_from_hashhash"><span class="octicon octicon-link"></span></a><code>#configure_from_hash(hash)</code>
+</h3>
+
+<p>Takes a raw <code>Hash</code> and converts itself and any nested hashes to a <code>PurpleHash</code>.
+Used internally by <code>#initialize</code></p>
+
+<h3>
+<a name="freeze" class="anchor" href="#freeze"><span class="octicon octicon-link"></span></a><code>#freeze!</code>
+</h3>
+
+<p>Locks the hash from any futher modifications. A <code>PurpleHash::HashFrozen</code> will be
+raised if the hash is frozen and you attempt to modify it. Keys that are not
+already defined will return <code>nil</code> instead of a new <code>PurpleHash</code>.</p>
+
+<h3>
+<a name="frozen" class="anchor" href="#frozen"><span class="octicon octicon-link"></span></a><code>#frozen?</code>
+</h3>
+
+<p>Find out if the hash is frozen.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jlogsdon">jlogsdon</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
